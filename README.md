@@ -99,6 +99,11 @@ Modalities: RGB, Depth, Semantic Labels
 
 Classes: Ground, European Beech, Rocks, Norway Maple, Dead Wood, Black Alder
 
+The dataset used in the manuscript can be downloaded from:
+```url
+https://usf.box.com/s/dhjfsqhjkkyi4gs2upc8jmxduexfsvm1
+```
+
 ## Extending Modalities
 
 SegGen is modular:
