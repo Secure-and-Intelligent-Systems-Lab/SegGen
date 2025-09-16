@@ -1,0 +1,51 @@
+DATASET:
+  IGNORE_LABEL: 255
+  MODALS:
+  - image
+  NAME: UE5
+  ROOT: /nvme/SISLab/Datasets/UE5_Dataset_V1
+DEVICE: cuda
+EVAL:
+  BATCH_SIZE: 1
+  IMAGE_SIZE:
+  - 1024
+  - 1792
+  MODEL_PATH: results/ue5/20250821-105620/best_model_epoch299_mIoU82.6000.pth
+  MSF:
+    ENABLE: false
+    FLIP: true
+    SCALES:
+    - 0.5
+    - 0.75
+    - 1.0
+    - 1.25
+    - 1.5
+    - 1.75
+LOSS:
+  CLS_WEIGHTS: false
+  NAME: CrossEntropy
+MODEL:
+  BACKBONE: CMNeXt-B4
+  NAME: CMNeXt
+  PRETRAINED: /nvme/SISLab/MIT_checkpts/mit_b4.pth
+  RESUME: ''
+OPTIMIZER:
+  LR: 6.0e-05
+  NAME: AdamW
+  WEIGHT_DECAY: 0.01
+SAVE_DIR: results/ue5
+SCHEDULER:
+  NAME: WarmupPolyLR
+  POWER: 0.9
+  WARMUP: 10
+  WARMUP_RATIO: 0.1
+TRAIN:
+  AMP: true
+  BATCH_SIZE: 4
+  DDP: true
+  EPOCHS: 300
+  EVAL_INTERVAL: 1
+  EVAL_START: 0
+  IMAGE_SIZE:
+  - 768
+  - 1280
